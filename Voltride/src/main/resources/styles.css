@@ -1,0 +1,64 @@
+.upload-button, .inscription-button, .login-button {
+    -fx-background-color: #19192a; /* Couleur de fond */
+    -fx-text-fill: white; /* Couleur du texte */
+    -fx-font-size: 14px; /* Taille de la police */
+}
+
+.upload-button:hover, .inscription-button:hover, .login-button:hover {
+    -fx-background-color: #a5e4dc; /* Couleur de fond au survol */
+}
+
+TextField, Label {
+    -fx-font-size: 14px; /* Taille de la police */
+}
+
+#modifieru,
+#suppeimerus,
+#uploadButton,
+#inscription,
+#ajouter {
+    -fx-background-color: #19192a; /* Couleur de fond */
+    -fx-text-fill: white; /* Couleur du texte */
+    -fx-font-size: 14px; /* Taille de la police */
+}
+
+#modifieru:hover,
+#uploadButton:hover,
+#inscription:hover,
+#suppeimerus:hover,
+
+#ajouter:hover {
+    -fx-background-color: #a5e4dc; /* Couleur de fond au survol */
+}
+
+#image_um,
+#image_am,
+#image_a {
+    -fx-font-size: 14px; /* Taille de la police */
+}
+
+#image_um:editable,
+#image_am:editable,
+#image_a:editable {
+    -fx-background-color: transparent; /* Couleur de fond transparente */
+    -fx-control-inner-background: transparent; /* Couleur de fond du champ de texte transparente */
+    -fx-background-insets: 0; /* Pas de marge de fond */
+}
+
+#cin_a,
+#nom_a,
+#prenom_a,
+#email_a,
+#mp_a,
+#cin_um,
+#nom_um,
+#prenom_um,
+#email_um,
+#mp_um,
+#cin_am,
+#nom_am,
+#prenom_am,
+#email_am,
+#mp_am {
+    -fx-font-size: 14px; /* Taille de la police */
+}

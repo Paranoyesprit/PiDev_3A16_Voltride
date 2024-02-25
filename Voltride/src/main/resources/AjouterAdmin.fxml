@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AjouterAdminController">
+   <stylesheets>
+      <URL value="@styles.css" />
+   </stylesheets>
+   <children>
+
+            <Label layoutX="30.0" layoutY="38.0" text="CIN:" />
+            <TextField fx:id="cin_a" layoutX="117.0" layoutY="33.0" />
+
+            <Label layoutX="25.0" layoutY="85.0" text="Nom:" />
+            <TextField fx:id="nom_a" layoutX="117.0" layoutY="80.0" />
+
+            <Label layoutX="17.0" layoutY="125.0" text="Prénom:" />
+            <TextField fx:id="prenom_a" layoutX="117.0" layoutY="120.0" />
+
+            <Label layoutX="24.0" layoutY="169.0" text="Email:" />
+            <TextField fx:id="email_a" layoutX="117.0" layoutY="164.0" />
+
+            <Label layoutX="9.0" layoutY="212.0" text="Mot de passe:" />
+            <TextField fx:id="mp_a" layoutX="117.0" layoutY="207.0" />
+
+            <Label layoutX="22.0" layoutY="257.0" text="Image:" />
+
+            <TextField fx:id="image_a" editable="false" layoutX="317.0" layoutY="252.0" prefHeight="30.0" prefWidth="282.0" style="-fx-background-color: transparant;" />
+            <Button fx:id="uploadButton" layoutX="134.0" layoutY="252.0" onAction="#uploadImage" prefHeight="30.0" prefWidth="140.0" text="Telecharger image" />
+
+            <Label layoutX="10.0" layoutY="299.0" text="Département:" />
+            <ComboBox fx:id="dep" layoutX="128.0" layoutY="296.0" prefWidth="150.0">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="G.USERS" />
+                     <String fx:value="G.VOITURES" />
+                     <String fx:value="G.BORNES" />
+                     <String fx:value="G.EVENENEMENTS" />
+                     <String fx:value="G.SERVICES_AL" />
+                  </FXCollections>
+               </items>
+            </ComboBox>
+
+         <Button fx:id="inscription" layoutX="133.0" layoutY="341.0" onAction="#ajouterAdmin" prefHeight="30.0" prefWidth="140.0" text="Ajouter" />
+   </children>
+</AnchorPane>
