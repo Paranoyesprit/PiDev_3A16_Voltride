@@ -1,19 +1,25 @@
 package org.example;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import gestion_service_apreslocation.entities.ServiceApreslocation;
+import gestion_service_apreslocation.entities.Type;
+import gestion_service_apreslocation.service.ServiceApreslocationServices;
+import utils.DataSource;
+
+
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Entrée with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        DataSource ds1 = DataSource.getInstance();
+        System.out.println(ds1);
 
-        // Press Maj+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        ServiceApreslocationServices ps= new ServiceApreslocationServices();
+        Type type = new Type("aa");
+        ServiceApreslocation l1 = new ServiceApreslocation(type,
+                "yassine" , "blablabla","on or off",250.5,1,1
+        );
+        ps.add(l1);
+      // ps.readAll().forEach(System.out::println);
+      // l1.setCout(300);
+       //ps.update(1,l1);
+      //  ps.delete(3);
 
-            // Press Maj+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
-        }
-    }
-}
+}}

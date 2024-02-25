@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_service_apreslocation.controllers.AfficherTypeController">
+    <children>
+        <Label layoutX="47.0" layoutY="40.0" text="Evenements List" />
+
+        <TableView fx:id="tableViewType" layoutX="47.0" layoutY="80.0" prefWidth="506.0" prefHeight="270.0">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID" />
+                <TableColumn fx:id="typeNameColumn" text="Type" />
+                <TableColumn fx:id="deleteColumn" text="Supprimer" />
+            </columns>
+        </TableView>
+        <Button text="Ajouter" layoutX="47.0" layoutY="360.0" onAction="#redirectToAddType" />
+
+
+    </children>
+</AnchorPane>
