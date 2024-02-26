@@ -39,9 +39,14 @@ public class AjouterTypeController {
     }
 
     private boolean validateInput() {
-        if (txttypeName.getText() == null || txttypeName.getText().isEmpty()) {
-            System.out.println("Please insert a type.");
-            showValidationMessage("Please insert a type.");
+        String typeName = txttypeName.getText().trim();
+        if (typeName.isEmpty()) {
+            System.out.println("Veuillez inserer un type.");
+            showValidationMessage("Veuillez inserer un type.");
+            return false;
+        } else if (!typeName.matches("[a-zA-Z]+")) {
+            System.out.println("Le nom du type ne doit contenir que des caractères alphabétiques.");
+            showValidationMessage("Le nom du type ne doit contenir que des caractères alphabétiques.\n");
             return false;
         } else {
             hideValidationMessage();

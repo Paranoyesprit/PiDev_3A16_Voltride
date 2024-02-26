@@ -1,7 +1,6 @@
 package gestion_service_apreslocation.controllers;
-
-import gestion_service_apreslocation.entities.Type;
 import gestion_service_apreslocation.entities.Bus;
+import gestion_service_apreslocation.entities.Type;
 import gestion_service_apreslocation.service.TypeService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,18 +30,18 @@ public class AfficherTypeController implements Initializable, Bus.EventListener 
     @FXML
     private TableColumn<Type, String> typeNameColumn;
 
-
-    private final ObservableList<Type> types = FXCollections.observableArrayList();
     @FXML
     private TableColumn<Type, Void> deleteColumn;
+
+    @FXML
+    private TableColumn<Type, Void> updateColumn;
+
+    private final ObservableList<Type> types = FXCollections.observableArrayList();
     private TypeService typeService;
-
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         typeService = new TypeService();
-
 
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         typeNameColumn.setCellValueFactory(new PropertyValueFactory<>("typeName"));
@@ -69,11 +68,33 @@ public class AfficherTypeController implements Initializable, Bus.EventListener 
         });
 
 
+        updateColumn.setCellFactory(param -> new TableCell<>() {
+            private final Button updateButton = new Button("Modifier");
+
+            {
+                updateButton.setOnAction(event -> {
+                    Type type = getTableView().getItems().get(getIndex());
+                    updateService(type.getId());
+                });
+            }
+
+            @Override
+            protected void updateItem(Void item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(updateButton);
+                }
+            }
+        });
+
         List<Type> typesList = typeService.readAll();
         types.addAll(typesList);
         tableViewType.setItems(types);
         Bus.getInstance().register(this);
     }
+
     @Override
     public void onTableRefreshed() {
         refreshTable();
@@ -92,20 +113,17 @@ public class AfficherTypeController implements Initializable, Bus.EventListener 
             }
         });
     }
+
     private void refreshTable() {
         types.clear();
         List<Type> evenementsList = typeService.readAll();
         types.addAll(evenementsList);
-        tableViewType.setItems(types);}
-
-
-
-
+        tableViewType.setItems(types);
+    }
 
     public void redirectToAddType(ActionEvent type) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterType.fxml"));
-
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -115,5 +133,18 @@ public class AfficherTypeController implements Initializable, Bus.EventListener 
         }
     }
 
+    public void updateService(int id) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/UpdateType.fxml"));
+            Parent root = loader.load();
 
+            UpdateTypeController updateController = loader.getController();
+            updateController.initData(id);
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

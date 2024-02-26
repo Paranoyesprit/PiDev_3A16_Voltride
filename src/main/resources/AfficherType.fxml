@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_service_apreslocation.controllers.AfficherTypeController">
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="550.0" prefWidth="760.0" stylesheets="Design1.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_service_apreslocation.controllers.AfficherTypeController">
     <children>
-        <Label layoutX="47.0" layoutY="40.0" text="Evenements List" />
+        <ImageView fitWidth="100" fitHeight="100" layoutX="600.0" layoutY="10.0">
+            <image>
+                <Image url="@logo.png" />
+            </image>
+        </ImageView>
+        <Label layoutX="47.0" layoutY="40.0" text="Liste des Types de Service" />
 
-        <TableView fx:id="tableViewType" layoutX="47.0" layoutY="80.0" prefWidth="506.0" prefHeight="270.0">
+        <TableView fx:id="tableViewType" layoutX="250.0" layoutY="80.0" prefWidth="232.0" prefHeight="270.0">
             <columns>
                 <TableColumn fx:id="idColumn" text="ID" />
                 <TableColumn fx:id="typeNameColumn" text="Type" />
+                <TableColumn fx:id="updateColumn" text="Modifier" />
                 <TableColumn fx:id="deleteColumn" text="Supprimer" />
             </columns>
         </TableView>

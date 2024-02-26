@@ -17,7 +17,7 @@ public class mainfx extends Application {
     @Override
     public void start(Stage primaryStage) {
         FXMLLoader loader = new FXMLLoader(getClass()
-                .getResource("/AfficherServiceApreslocation.fxml")); // Changer le chemin du fichier FXML
+                .getResource("/AfficherType.fxml")); // Changer le chemin du fichier FXML
         try {
             Parent root = loader.load();
             Scene scene = new Scene(root);

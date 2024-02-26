@@ -62,7 +62,8 @@ public class AfficherServiceApreslocationController implements Initializable, Bu
     public void initialize(URL location, ResourceBundle resources) {
         ServiceApreslocationServices = new ServiceApreslocationServices();
 
-        // Set up the columns
+        //n7adher les columns bch y affichi les attributs w yorbothhom mel base
+
         idColumn.setCellValueFactory(new PropertyValueFactory<>("idservice"));
         typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
         technicienColumn.setCellValueFactory(new PropertyValueFactory<>("technicien"));
@@ -131,7 +132,7 @@ public class AfficherServiceApreslocationController implements Initializable, Bu
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmation");
         alert.setHeaderText(null);
-        alert.setContentText("Are you sure you want to delete this event?");
+        alert.setContentText("Êtes-vous sûr de vouloir supprimer ce Service");
 
         alert.showAndWait().ifPresent(response -> {
             if (response == ButtonType.OK) {
