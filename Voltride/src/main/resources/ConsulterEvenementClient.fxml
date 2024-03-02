@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="500.0" prefWidth="788.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConsulterEvenementClient">
+    <children>
+        <TableView fx:id="affTV" layoutX="-3.0" layoutY="38.0" prefHeight="418.0" prefWidth="779.0">
+            <columns>
+                <TableColumn fx:id="ideTC" prefWidth="74.0" text="ID" />
+                <TableColumn fx:id="dateTC" prefWidth="119.0" text="Date évenement" />
+                <TableColumn fx:id="adresseTC" prefWidth="111.0" text="Adresse" />
+                <TableColumn fx:id="nbrpTC" prefWidth="104.0" text="nombre de personne" />
+                <TableColumn fx:id="typeTC" prefWidth="79.0" text="Type" />
+                <TableColumn fx:id="commentaireTC" prefWidth="98.0" text="Commentaire" />
+            <TableColumn fx:id="modifyTC" prefWidth="74.0" text="update" />
+            <TableColumn fx:id="deleteTC" prefWidth="165.0" text="delete" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>
