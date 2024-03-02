@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="422.0" prefWidth="826.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MenuController">
+   <children>
+      <VBox prefHeight="438.0" prefWidth="229.0" style="-fx-background-color: #1A4146;">
+         <children>
+            <Button mnemonicParsing="false" onAction="#Charfapage" prefHeight="71.0" prefWidth="242.0" style="-fx-background-color: transparant;" text="Reserver voiture" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#Mahdipage" prefHeight="71.0" prefWidth="233.0" style="-fx-background-color: transparant;" text="Reserver borne" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#Ferpage" prefHeight="71.0" prefWidth="233.0" style="-fx-background-color: transparant;" text="Reserver evenement" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#Azizpage" prefHeight="71.0" prefWidth="238.0" style="-fx-background-color: transparant;" text="Service après location" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#Param" prefHeight="71.0" prefWidth="242.0" style="-fx-background-color: transparant;" text="Paramètre du compte" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#Deconnexion" prefHeight="82.0" prefWidth="239.0" style="-fx-background-color: transparant;" text="Déconnexion" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <VBox layoutX="229.0" prefHeight="82.0" prefWidth="598.0" style="-fx-background-color: #8AD6CC;" />
+      <Pane fx:id="aff" layoutX="230.0" layoutY="82.0" prefHeight="359.0" prefWidth="598.0" />
+   </children>
+</AnchorPane>
