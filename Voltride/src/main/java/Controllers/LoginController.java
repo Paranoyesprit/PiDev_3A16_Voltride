@@ -1,6 +1,7 @@
 package Controllers;
 
 import Entities.Admin;
+import Entities.PasswordEncryption;
 import Entities.User;
 import Entities.UserSession;
 import Service.UserService;
@@ -16,7 +17,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 
-import javax.swing.*;
 import java.io.IOException;
 
 public class LoginController {
@@ -37,10 +37,17 @@ public class LoginController {
                 this.stage = stage;
         }
 
+
         @FXML
         void login(ActionEvent event) {
                 String email = email_log.getText();
-                String password = mp_log.getText();
+                String password;
+                try {
+                        password = PasswordEncryption.encrypt(mp_log.getText());
+                } catch (Exception e) {
+                        showAlert("Erreur", "Une erreur s'est produite lors du cryptage du mot de passe.");
+                        return;
+                }
 
                 if (email.isEmpty() || password.isEmpty()) {
                         showAlert("Erreur de Connexion", "Veuillez remplir tous les champs.");
@@ -53,12 +60,7 @@ public class LoginController {
                 if (admin != null && admin.getMotDePasse().equals(password)) {
                         redirectToAdminPage(admin.getDepartement());
                 } else if (user != null && user.getMotDePasse().equals(password)) {
-                        // Si l'utilisateur se connecte avec succès, ajoutez une session
-                        if (user != null && user.getMotDePasse().equals(password)) {
-                                UserSession.getInstance().setCurrentUser(user);
-                                redirectToMenu();
-                        }
-
+                        UserSession.getInstance().setCurrentUser(user);
                         redirectToMenu();
                 } else {
                         showAlert("Erreur de Connexion", "Adresse e-mail ou mot de passe incorrect. Veuillez réessayer.");
@@ -66,42 +68,19 @@ public class LoginController {
         }
 
         private void redirectToAdminPage(String department) {
-                String adminPagePath;
-                switch (department) {
-                        case "G.VOITURES":
-                                adminPagePath = "/1.fxml";
-                                break;
-                        case "G.BORNES":
-                                adminPagePath = "/2.fxml";
-                                break;
-                        case "G.EVENEMENTS":
-                                adminPagePath = "/3.fxml";
-                                break;
-                        case "G.SERVICES_AL":
-                                adminPagePath = "/4.fxml";
-                                break;
-                        case "G.USERS":
-                                adminPagePath = "/AfficherGestionUser.fxml";
-                                break;
-                        default:
-                                adminPagePath = "/UserDash.fxml";
-                                break;
-                }
+                String adminPagePath = switch (department) {
+                        case "G.VOITURES" -> "/1.fxml";
+                        case "G.BORNES" -> "/2.fxml";
+                        case "G.EVENEMENTS" -> "/3.fxml";
+                        case "G.SERVICES_AL" -> "/4.fxml";
+                        case "G.USERS" -> "/AfficherGestionUser.fxml";
+                        default -> "/UserDash.fxml";
+                };
                 redirectToPage(adminPagePath);
         }
 
         private void redirectToMenu() {
-                try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Menu.fxml"));
-                        Parent root = loader.load();
-                        Scene scene = new Scene(root);
-                        Stage currentStage = (Stage) loginButton.getScene().getWindow();
-                        currentStage.setScene(scene);
-                        currentStage.show();
-                } catch (IOException e) {
-                        e.printStackTrace();
-                        showAlert("Erreur de Navigation", "Impossible de charger le menu. Veuillez réessayer.");
-                }
+                redirectToPage("/Menu.fxml");
         }
 
         private void redirectToPage(String pagePath) {
@@ -119,15 +98,23 @@ public class LoginController {
         }
 
         private void showAlert(String title, String content) {
-                JOptionPane.showMessageDialog(null, content, title, JOptionPane.ERROR_MESSAGE);
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle(title);
+                alert.setHeaderText(null);
+                alert.setContentText(content);
+                alert.showAndWait();
         }
 
         @FXML
         void inscri(ActionEvent event) {
-
                 redirectToPage("/Inscription.fxml", event);
-
         }
+
+        @FXML
+        void pwd(ActionEvent event) {
+                redirectToPage("/Getpass.fxml", event);
+        }
+
         private void redirectToPage(String pagePath, ActionEvent event) {
                 try {
                         FXMLLoader loader = new FXMLLoader(getClass().getResource(pagePath));

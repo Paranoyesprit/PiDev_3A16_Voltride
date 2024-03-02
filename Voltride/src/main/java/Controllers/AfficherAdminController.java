@@ -128,13 +128,16 @@ public class AfficherAdminController {
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
-            stage.setTitle("Modifier Voiture");
+            stage.setTitle("Modifier Admin");
+            stage.showAndWait(); // Attendre que la fenêtre de modification se ferme avant de recharger les données
             reloadAdminData();
-            stage.show();
         } catch (IOException e) {
             showAlert("Erreur", "Une erreur s'est produite lors de l'ouverture de l'interface de modification.");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
+
 
 
     private void deleteAdmin(Admin adminToDelete) {
@@ -177,8 +180,8 @@ public class AfficherAdminController {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.setTitle("Ajouter Admin");
+            stage.showAndWait();
             reloadAdminData();
-            stage.show();
         } catch (IOException e) {
             showAlert("Erreur", "Une erreur s'est produite lors de l'ouverture de l'interface d'ajout de voiture.");
         }

@@ -62,3 +62,47 @@ TextField, Label {
 #mp_am {
     -fx-font-size: 14px; /* Taille de la police */
 }
+.rounded-image {
+    -fx-stroke-width: 2; /* Changer l'épaisseur de la bordure si nécessaire */
+    -fx-stroke: white; /* Couleur de la bordure */
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 10, 0.0 , 0 , 1 ); /* Ajouter une ombre si nécessaire */
+    -fx-background-color: transparent; /* Couleur de fond */
+    -fx-background-radius: 50%; /* Rendre le coin arrondi */
+    -fx-border-radius: 50%; /* Rendre le coin de la bordure arrondi */
+}
+
+/* styles.css */
+
+
+/* style des cellules */
+.table-cell {
+    -fx-alignment: CENTER; /* alignement centré du contenu */
+    -fx-padding: 5px; /* marge interne */
+}
+
+/* style des en-têtes de colonnes */
+.table-column {
+    -fx-alignment: CENTER; /* alignement centré du texte */
+    -fx-font-weight: bold; /* texte en gras */
+}
+
+/* style des lignes de tableau alternées */
+.table-row-cell:odd {
+    -fx-background-color: #f0f0f0; /* couleur de fond des lignes impaires */
+}
+
+/* style de la sélection */
+.table-row-cell:selected {
+    -fx-background-color: #3366CC; /* couleur de fond de la sélection */
+    -fx-text-fill: white; /* couleur du texte de la sélection */
+}
+
+
+.label {
+    -fx-text-fill: white;
+}
+#image_um {
+    -fx-text-fill: transparent;
+}
+
+

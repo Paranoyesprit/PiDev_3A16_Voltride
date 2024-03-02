@@ -1,5 +1,6 @@
 package Controllers;
 
+import Entities.PasswordEncryption;
 import Entities.User;
 import Entities.UserSession;
 import Service.UserService;
@@ -19,6 +20,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Base64;
 
 public class UserDashController {
 
@@ -63,7 +65,8 @@ public class UserDashController {
                 prenom_um.setText(currentUser.getPrenom());
                 cin_um.setText(String.valueOf(currentUser.getCin()));
                 email_um.setText(currentUser.getEmail());
-                mp_um.setText(currentUser.getMotDePasse());
+                String decodedPassword = PasswordEncryption.decrypt(currentUser.getMotDePasse());
+                mp_um.setText(decodedPassword);
                 image_um.setText(currentUser.getImage());
             } else {
                 // Gérer le cas où l'utilisateur courant n'est pas défini dans la session
@@ -87,8 +90,8 @@ public class UserDashController {
                 usertomodify.setNom(nom_um.getText());
                 usertomodify.setPrenom(prenom_um.getText());
                 usertomodify.setEmail(email_um.getText());
-                usertomodify.setMotDePasse(mp_um.getText());
-                usertomodify.setImage(image_um.getText());
+                String newPassword = PasswordEncryption.encrypt(mp_um.getText());
+                usertomodify.setMotDePasse(newPassword);                usertomodify.setImage(image_um.getText());
 
                 userService.update(usertomodify.getId_u(), usertomodify);
 
@@ -110,7 +113,7 @@ public class UserDashController {
                 int userId = usertomodify.getId_u();
                 userService.delete(userId);
                 showAlert("Suppression réussie", "Votre compte a été supprimé avec succès.");
-               // redirectToLoginPage(event);
+                redirectToLoginPage(event); // Redirection vers la page de connexion après la suppression
             } else {
                 showAlert("Erreur", "Aucun utilisateur à supprimer.");
             }
@@ -140,6 +143,24 @@ public class UserDashController {
             image_um.setText(selectedFile.getAbsolutePath());
             Image image = new Image(selectedFile.toURI().toString());
             imageView.setImage(image);
+        }
+    }
+
+
+
+    private void redirectToLoginPage(ActionEvent event) {
+        try {
+            // Charger l'interface de connexion
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/login.fxml"));
+            Parent root = loader.load();
+
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Connexion");
+            stage.show();
+        } catch (IOException e) {
+            showAlert("Erreur", "Une erreur s'est produite lors de la redirection vers la page de connexion.");
         }
     }
 

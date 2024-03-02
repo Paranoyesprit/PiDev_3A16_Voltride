@@ -27,7 +27,7 @@ public class MainFx extends Application {
         loginController.setStage(primaryStage);
 
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Votre titre");
+        primaryStage.setTitle("Voltride");
 
         primaryStage.show();
     }

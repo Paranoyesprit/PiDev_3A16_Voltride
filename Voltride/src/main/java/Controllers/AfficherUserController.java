@@ -97,28 +97,7 @@ public class AfficherUserController {
         affichage_cl.getItems().remove(userToDelete);
     }
 
-    @FXML
-    void ajouterU(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Inscription.fxml"));
-            Parent root = loader.load();
 
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.setTitle("Ajouter Admin");
 
-            stage.show();
-        } catch (IOException e) {
-            showAlert("Erreur", "Une erreur s'est produite lors de l'ouverture de l'interface d'ajout d'administrateur.");
-        }
-    }
 
-    private void showAlert(String titre, String message) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(titre);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
-    }
 }

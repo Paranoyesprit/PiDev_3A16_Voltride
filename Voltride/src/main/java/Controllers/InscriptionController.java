@@ -1,5 +1,6 @@
 package Controllers;
 
+import Entities.PasswordEncryption;
 import Entities.User;
 import Service.UserService;
 import javafx.event.ActionEvent;
@@ -12,7 +13,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
+import java.util.Base64;
 
 public class InscriptionController {
 
@@ -44,13 +48,16 @@ public class InscriptionController {
     @FXML
     public void ajouterClient(ActionEvent event) {
         try {
+            // Crypter le mot de passe avec AES
+            String password = PasswordEncryption.encrypt(mp_c.getText());
+
             // Créez une nouvelle instance d'utilisateur avec les informations saisies par l'utilisateur
             User user = new User(
                     Integer.parseInt(cin_c.getText()),
                     nom_c.getText(),
                     prenom_c.getText(),
                     email_c.getText(),
-                    mp_c.getText(),
+                    password,
                     new Date(System.currentTimeMillis()),
                     image_c.getText()
             );
@@ -69,6 +76,8 @@ public class InscriptionController {
             e.printStackTrace();
         }
     }
+
+
 
     @FXML
     public void uploadImage() {

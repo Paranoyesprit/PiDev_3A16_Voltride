@@ -74,7 +74,7 @@ public class UserService implements IService<User>{
     // Méthode pour vérifier la validité du CIN (8 chiffres)
     private boolean validateCIN(int cin) {
         String cinString = String.valueOf(cin);
-        return cinString.matches("\\d{8}");
+        return cinString.matches("\\d{9}");
     }
 
     // Méthode pour vérifier la validité de l'email
@@ -321,6 +321,30 @@ public class UserService implements IService<User>{
         }
         return null;
     }
+    public boolean verifyCINByEmail(String email, String cin) {
+        String requete = "SELECT * FROM utilisateur WHERE email = ? AND cin = ?";
+        try {
+            pst = conn.prepareStatement(requete);
+            pst.setString(1, email);
+            pst.setString(2, cin);
+            ResultSet rs = pst.executeQuery();
+            return rs.next(); // Si le résultat de la requête contient une ligne, cela signifie que le numéro de CIN est valide pour cet e-mail
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void updatePasswordByEmail(String email, String encryptedPassword) {
+        String requete = "UPDATE utilisateur SET mot_de_passe = ? WHERE email = ?";
+        try {
+            pst = conn.prepareStatement(requete);
+            pst.setString(1, encryptedPassword);
+            pst.setString(2, email);
+            pst.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
 
@@ -447,6 +471,22 @@ public class UserService implements IService<User>{
         }
     }
 
+    public String getPasswordByEmail(String email) {
+        String requete = "SELECT mot_de_passe FROM utilisateur WHERE email = ?";
+        try {
+            pst = conn.prepareStatement(requete);
+            pst.setString(1, email);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                return rs.getString("mot_de_passe");
+            } else {
+                System.out.println("User not found for email: " + email);
+                return null; // Ou lancez une exception si nécessaire
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public Admin readAdminById(int id_u) {
         String query = "SELECT * FROM admin INNER JOIN utilisateur ON admin.id_u = utilisateur.id_u WHERE admin.id_u = ?";

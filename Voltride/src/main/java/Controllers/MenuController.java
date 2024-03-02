@@ -1,5 +1,7 @@
 package Controllers;
 
+import Entities.User;
+import Entities.UserSession;
 import Service.UserService;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -10,6 +12,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -42,6 +45,10 @@ public class MenuController {
 
     @FXML
     private Button DisconnectButton;
+
+
+    @FXML
+    private ImageView img;
 
     public void setStage(Stage stage) {
         this.stage = stage;
@@ -87,9 +94,24 @@ public class MenuController {
 
     @FXML
     void Deconnexion(ActionEvent event) {
+        redirectToPage("/Login.fxml", event);
 
+
+    }
+
+    public void initialize() {
+        // Récupérer l'utilisateur actuellement connecté à la session
+        User currentUser = UserSession.getInstance().getCurrentUser();
+        if (currentUser != null) {
+            // Récupérer le chemin de l'image de l'utilisateur
+            String imagePath = currentUser.getImage();
+            // Utiliser le préfixe "file:///" pour charger une image à partir du système de fichiers local
+            imagePath = "file:///" + imagePath;
+            // Charger l'image à partir du chemin et l'afficher dans l'ImageView
+            Image image = new Image(imagePath);
+            img.setImage(image);
         }
-
+    }
 
 
     private void redirectToPage(String pagePath, ActionEvent event) {
