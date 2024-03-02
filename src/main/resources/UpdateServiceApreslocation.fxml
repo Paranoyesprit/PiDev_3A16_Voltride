@@ -48,18 +48,6 @@
                         <TextField fx:id="txtcout" />
                     </children>
                 </HBox>
-                <HBox spacing="10.0" styleClass="input-row">
-                    <children>
-                        <Label text="ID Client:" />
-                        <TextField fx:id="txtid_client" />
-                    </children>
-                </HBox>
-                <HBox spacing="10.0" styleClass="input-row">
-                    <children>
-                        <Label text="ID Voiture:" />
-                        <TextField fx:id="txtid_voiture" />
-                    </children>
-                </HBox>
 
                 <Button layoutX="321.0" layoutY="304.0" mnemonicParsing="false" onAction="#updateService" text="Update" styleClass="update-button" />
             </children>

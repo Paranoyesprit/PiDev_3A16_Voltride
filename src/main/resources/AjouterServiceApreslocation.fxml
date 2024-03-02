@@ -28,7 +28,7 @@
 
                 <HBox spacing="10.0" alignment="CENTER">
                     <children>
-                        <Label text="technicien :" />
+                        <Label text="technicien ou personne en charge :" />
                         <TextField fx:id="txttechnicien" />
                     </children>
                 </HBox>
@@ -54,19 +54,9 @@
                     </children>
                 </HBox>
 
-                <HBox spacing="10.0" alignment="CENTER">
-                    <children>
-                        <Label text="ID client :" />
-                        <TextField fx:id="txtid_client" />
-                    </children>
-                </HBox>
 
-                <HBox spacing="10.0" alignment="CENTER">
-                    <children>
-                        <Label text="ID voiture :" />
-                        <TextField fx:id="txtid_voiture" />
-                    </children>
-                </HBox>
+
+
 
                 <Button layoutX="321.0" layoutY="304.0" mnemonicParsing="false" onAction="#addservice_apreslocation" text="Ajouter" />
             </children>

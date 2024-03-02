@@ -17,11 +17,11 @@ public class mainfx extends Application {
     @Override
     public void start(Stage primaryStage) {
         FXMLLoader loader = new FXMLLoader(getClass()
-                .getResource("/AfficherType.fxml")); // Changer le chemin du fichier FXML
+                .getResource("/AfficherServiceApreslocation.fxml")); // appel lel fichier FXML
         try {
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            primaryStage.setTitle("Service De Gestion Après Location"); // Changer le titre de la fenêtre
+            primaryStage.setTitle("Service De Gestion Après Location"); // titre mta3 el fenêtre
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {

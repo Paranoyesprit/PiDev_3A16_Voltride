@@ -20,7 +20,7 @@ public class ServiceApreslocationServices implements IServiceS<ServiceApreslocat
 
     @Override
     public void add(ServiceApreslocation l) {
-        String requete = "INSERT INTO service_apreslocation (type, technicien, description, statut, cout, id_client, id_voiture) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String requete = "INSERT INTO service_apreslocation (type, technicien, description, statut, cout) VALUES (?, ?, ?, ?, ?)";
         try {
             pst = conn.prepareStatement(requete);
             pst.setInt(1, l.getType().getId());
@@ -28,8 +28,6 @@ public class ServiceApreslocationServices implements IServiceS<ServiceApreslocat
             pst.setString(3, l.getDescription());
             pst.setString(4, l.getStatut());
             pst.setDouble(5, l.getCout());
-            pst.setDouble(6, l.getId_client());
-            pst.setDouble(7, l.getId_voiture());
             pst.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -52,7 +50,7 @@ public class ServiceApreslocationServices implements IServiceS<ServiceApreslocat
 
     @Override
     public void update(int i, ServiceApreslocation l) {
-        String requete = "UPDATE service_apreslocation SET type = ?, technicien = ?, description= ?, statut = ?, cout = ?, id_client = ?, id_voiture = ? WHERE idservice =?";
+        String requete = "UPDATE service_apreslocation SET type = ?, technicien = ?, description= ?, statut = ?, cout = ? WHERE idservice =?";
         try{
             pst = conn.prepareStatement(requete);
             pst.setInt(1, l.getType().getId());
@@ -60,9 +58,7 @@ public class ServiceApreslocationServices implements IServiceS<ServiceApreslocat
             pst.setString(3, l.getDescription());
             pst.setString(4, l.getStatut());
             pst.setDouble(5, l.getCout());
-            pst.setInt(6, l.getId_client());
-            pst.setInt(7, l.getId_voiture());
-            pst.setInt(8, i);
+            pst.setInt(6, i);
             pst.executeUpdate();
 
         }catch(SQLException e){
@@ -72,7 +68,7 @@ public class ServiceApreslocationServices implements IServiceS<ServiceApreslocat
 
     @Override
     public List<ServiceApreslocation> readAll() {
-        String requete="select * from service_apreslocation";
+        String requete = "select * from service_apreslocation";
         List<ServiceApreslocation> list = new ArrayList<>();
         try {
             ste = conn.createStatement();
@@ -80,25 +76,20 @@ public class ServiceApreslocationServices implements IServiceS<ServiceApreslocat
             while (rs.next()) {
                 int typeId = rs.getInt("type");
                 Type type = readTypeById(typeId);
-               ServiceApreslocation sa= new ServiceApreslocation(
-                       type,
-                       rs.getString(3),
-                       rs.getString(4),
-                       rs.getString(5),
-                       rs.getDouble(6),
-                       rs.getInt(7),
-                       rs.getInt(8));
-               sa.setIdservice(rs.getInt(1));
+                ServiceApreslocation sa = new ServiceApreslocation(
+                        type,
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getDouble(6) // Assuming this is the correct column index for the service ID
+                );
+                sa.setIdservice(rs.getInt(1)); // Setting the service ID after creating the object
 
                 list.add(sa);
-
             }
-        }catch(SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException(e);
-
-
         }
-
 
         return list;
     }
@@ -117,10 +108,7 @@ public class ServiceApreslocationServices implements IServiceS<ServiceApreslocat
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getDouble(6),
-                        rs.getInt(7),
-                        rs.getInt(8));
-
+                        rs.getDouble(6));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -128,7 +116,8 @@ public class ServiceApreslocationServices implements IServiceS<ServiceApreslocat
         return null;
     }
 
-   private Type readTypeById(int id) {
+
+    private Type readTypeById(int id) {
        String query = "SELECT * FROM Type WHERE id = ?";
        try {
            pst = conn.prepareStatement(query);

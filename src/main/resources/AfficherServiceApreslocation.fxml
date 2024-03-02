@@ -13,9 +13,9 @@
         </image>
     </ImageView>
 
-    <Label layoutX="47.0" layoutY="40.0" text="Liste des services :" />
+    <Label layoutX="47.0" layoutY="40.0" text="Liste des Services :" />
 
-    <TableView fx:id="tableViewservices" layoutX="47.0" layoutY="120.0" prefHeight="400.0" prefWidth="670.0">
+    <TableView fx:id="tableViewservices" layoutX="47.0" layoutY="110.0" prefHeight="400.0" prefWidth="670.0">
         <columns>
             <TableColumn fx:id="idColumn" text="idservice" />
             <TableColumn fx:id="typeColumn" text="type" />
@@ -23,8 +23,6 @@
             <TableColumn fx:id="descriptionColumn" text="description" />
             <TableColumn fx:id="statutColumn" text="statut" />
             <TableColumn fx:id="coutColumn" text="cout" />
-            <TableColumn fx:id="id_clientColumn" text="id_client" />
-            <TableColumn fx:id="id_voitureColumn" text="id_voiture" />
             <TableColumn fx:id="updateColumn" text="Modifier" />
             <TableColumn fx:id="deleteColumn" text="Supprimer" />
         </columns>
@@ -32,6 +30,9 @@
         <fixedCellSize>30</fixedCellSize>
     </TableView>
 
-    <Button layoutX="47.0" layoutY="479.0" onAction="#handleAjouterService" prefHeight="35.0" prefWidth="62.0" text="Ajouter" />
+    <Button layoutX="47.0" layoutY="512.0" onAction="#handleAjouterService" prefHeight="35.0" prefWidth="200.0" text="Ajout Service" style="-fx-font-size: 6pt;" />
+    <Button layoutX="117.0" layoutY="512.0" onAction="#redirectToAddType" prefHeight="35.0" prefWidth="220.0" text="Ajout Type" style="-fx-font-size: 6pt;" />
+    <Button layoutX="187.0" layoutY="512.0" onAction="#redirectToShowType" prefHeight="35.0" prefWidth="220.0" text="Fiche Service" style="-fx-font-size: 6pt;" />
+
 </children>
 </AnchorPane>

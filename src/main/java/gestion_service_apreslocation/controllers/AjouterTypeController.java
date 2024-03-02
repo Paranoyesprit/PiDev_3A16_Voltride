@@ -44,11 +44,11 @@ public class AjouterTypeController {
             System.out.println("Veuillez inserer un type.");
             showValidationMessage("Veuillez inserer un type.");
             return false;
-        } else if (!typeName.matches("[a-zA-Z]+")) {
-            System.out.println("Le nom du type ne doit contenir que des caractères alphabétiques.");
-            showValidationMessage("Le nom du type ne doit contenir que des caractères alphabétiques.\n");
+        } else if (!typeName.matches("[a-zA-Z\\s]+")) {
+            System.out.println("Le nom du type ne doit contenir que des caractères alphabétiques et des espaces.");
+            showValidationMessage("Le nom du type ne doit contenir que des caractères alphabétiques et des espaces.\n");
             return false;
-        } else {
+    } else {
             hideValidationMessage();
         }
         return true;

@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.control.Alert;
 
 public class UpdateTypeController {
 
@@ -15,10 +16,10 @@ public class UpdateTypeController {
 
     private TypeService typeService;
     private Type type;
-    private int typeId; // This will hold the ID value internally
+    private int typeId; // hold lel ID
 
     public void initData(int typeId) {
-        this.typeId = typeId; // Initialize the internal ID
+        this.typeId = typeId; // initialisition mta3 el ID
         typeService = new TypeService();
 
         Type type = typeService.readById(typeId);
@@ -33,7 +34,7 @@ public class UpdateTypeController {
 
         String typeName = txtTypeName.getText();
 
-        // Use the internal ID for updating
+        // staamalna el ID lel update
         Type updatedType = new Type(typeName);
         updatedType.setId(this.typeId); // Set the internal ID
 
@@ -44,8 +45,26 @@ public class UpdateTypeController {
     }
 
     private boolean validateInput() {
-        // Implement your validation logic here
+        String typeName = txtTypeName.getText().trim();
+        if (typeName.isEmpty()) {
+            displayErrorMessage("Le champ type ne peut pas être vide.");
+            return false;
+        }
+
+        if (!typeName.matches("[a-zA-Z\\s]+")) {
+            displayErrorMessage("Le champ type ne peut contenir que des lettres et des espaces.");
+            return false;
+        }
+
         return true;
     }
-}
 
+
+    private void displayErrorMessage(String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur de saisie");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+}

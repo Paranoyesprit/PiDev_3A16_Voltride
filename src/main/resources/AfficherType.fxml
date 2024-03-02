@@ -21,8 +21,6 @@
                 <TableColumn fx:id="deleteColumn" text="Supprimer" />
             </columns>
         </TableView>
-        <Button text="Ajouter" layoutX="47.0" layoutY="360.0" onAction="#redirectToAddType" />
-
 
     </children>
 </AnchorPane>

@@ -8,17 +8,16 @@ public class ServiceApreslocation {
     private String description;
     private String statut;
     private double cout;
-    private  int id_client;
-    private int id_voiture;
 
-    public ServiceApreslocation(Type type, String technicien, String description, String statut, double cout, int id_client, int id_voiture) {
+
+
+    public ServiceApreslocation(Type type, String technicien, String description, String statut, double cout) {
         this.type = type;
         this.technicien = technicien;
         this.description = description;
         this.statut = statut;
         this.cout = cout;
-        this.id_client = id_client;
-        this.id_voiture = id_voiture;
+
     }
     public int getIdservice() {
         return idservice;
@@ -68,21 +67,6 @@ public class ServiceApreslocation {
         this.cout = cout;
     }
 
-    public int getId_client() {
-        return id_client;
-    }
-
-    public void setId_client(int id_client) {
-        this.id_client = id_client;
-    }
-
-    public int getId_voiture() {
-        return id_voiture;
-    }
-
-    public void setId_voiture(int id_voiture) {
-        this.id_voiture = id_voiture;
-    }
 
     @Override
     public String toString() {
@@ -93,8 +77,6 @@ public class ServiceApreslocation {
                 ", description=" + description +
                 ", statut=" + statut +
                 ", cout=" + cout +
-                ", id_client=" + id_client +
-                ", id_voiture=" + id_voiture +
                 '}';
     }
 

@@ -41,10 +41,7 @@ public class AfficherServiceApreslocationController implements Initializable, Bu
     private TableColumn<ServiceApreslocation, Double> statutColumn;
     @FXML
     private TableColumn<ServiceApreslocation, Integer> coutColumn;
-    @FXML
-    private TableColumn<ServiceApreslocation, Integer> id_clientColumn;
-    @FXML
-    private TableColumn<ServiceApreslocation, Integer> id_voitureColumn;
+
 
     private final ObservableList<ServiceApreslocation> services = FXCollections.observableArrayList();
     @FXML
@@ -70,8 +67,6 @@ public class AfficherServiceApreslocationController implements Initializable, Bu
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
         statutColumn.setCellValueFactory(new PropertyValueFactory<>("statut"));
         coutColumn.setCellValueFactory(new PropertyValueFactory<>("cout"));
-        id_clientColumn.setCellValueFactory(new PropertyValueFactory<>("id_client"));
-        id_voitureColumn.setCellValueFactory(new PropertyValueFactory<>("id_voiture"));
 
         deleteColumn.setCellFactory(param -> new TableCell<>() {
             private final Button deleteButton = new Button("Supprimer");
@@ -117,7 +112,7 @@ public class AfficherServiceApreslocationController implements Initializable, Bu
         });
 
 
-        // Load data from the database
+        // loading lel data mel data base
         List<ServiceApreslocation> apreslocationList = ServiceApreslocationServices.readAll();
         services.addAll(apreslocationList);
         tableViewservices.setItems(services);
@@ -156,7 +151,7 @@ public class AfficherServiceApreslocationController implements Initializable, Bu
         }
     }
 
-
+//fonction bch taamel refresh lel table
     private void refreshTable() {
         services.clear();
         List<ServiceApreslocation> evenementsList = ServiceApreslocationServices.readAll();
@@ -177,4 +172,31 @@ public class AfficherServiceApreslocationController implements Initializable, Bu
             e.printStackTrace();
         }
     }
+
+    public void redirectToAddType(ActionEvent actionEvent) {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AjouterType.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void redirectToShowType(ActionEvent actionEvent) {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherType.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

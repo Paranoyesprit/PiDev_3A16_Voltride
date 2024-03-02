@@ -14,7 +14,7 @@ public class Main {
         ServiceApreslocationServices ps= new ServiceApreslocationServices();
         Type type = new Type("aa");
         ServiceApreslocation l1 = new ServiceApreslocation(type,
-                "yassine" , "blablabla","on or off",250.5,1,1
+                "yassine" , "blablabla","on or off",250.5
         );
         ps.add(l1);
       // ps.readAll().forEach(System.out::println);
