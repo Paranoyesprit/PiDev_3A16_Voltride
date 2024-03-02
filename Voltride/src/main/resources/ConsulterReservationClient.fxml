@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="393.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ConsulterReservationClientController">
+    <children>
+        <TableView fx:id="affTV" layoutX="14.0" layoutY="37.0" prefHeight="319.0" prefWidth="675.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="23.0">
+            <columns>
+                <TableColumn fx:id="idrTC" prefWidth="27.999999046325684" text="ID" />
+                <TableColumn fx:id="datedTC" prefWidth="83.99997138977051" text="Date début" />
+                <TableColumn fx:id="datefTC" prefWidth="78.00001525878906" text="Date fin" />
+                <TableColumn fx:id="heure_dTC" prefWidth="85.99999237060547" text="Heure début" />
+                <TableColumn fx:id="heure_fTC" prefWidth="91.33331298828125" text="Heure fin" />
+                <TableColumn fx:id="emplacementTC" minWidth="6.0" prefWidth="98.0" text="Emplacement" />
+                <TableColumn fx:id="capaciteTC" prefWidth="53.333282470703125" text="Capacité" />
+                <TableColumn fx:id="deleteTC" prefWidth="75.33331298828125" text="Suppression" />
+                <TableColumn fx:id="modifyTC" prefWidth="81.33331298828125" text="Modification" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

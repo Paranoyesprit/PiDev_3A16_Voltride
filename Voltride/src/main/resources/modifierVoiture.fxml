@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.modifierVoitureController">
+   <children>
+      <Label layoutX="59.0" layoutY="56.0" text="marque" />
+      <Label layoutX="59.0" layoutY="104.0" text="modele" />
+      <Label layoutX="59.0" layoutY="159.0" text="etat" />
+      <Label layoutX="59.0" layoutY="210.0" text="prix location" />
+      <Label layoutX="59.0" layoutY="269.0" text="kilometrage" />
+      <Button layoutX="274.0" layoutY="321.0" mnemonicParsing="false" onAction="#modifierVoiture" text="modifier" />
+      <TextField fx:id="id_marque_modifer" layoutX="367.0" layoutY="52.0" />
+      <TextField fx:id="id_modele_modifer" layoutX="368.0" layoutY="100.0" />
+      <TextField fx:id="id_etat_modifer" layoutX="369.0" layoutY="155.0" />
+      <TextField fx:id="id_prix_modifer" layoutX="368.0" layoutY="206.0" />
+      <TextField fx:id="id_kilometrage_modifer" layoutX="370.0" layoutY="265.0" />
+   </children>
+</AnchorPane>

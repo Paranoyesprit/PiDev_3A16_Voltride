@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ModifierBorneController">
+   <children>
+      <TextField fx:id="nvempTF" layoutX="226.0" layoutY="74.0" />
+      <TextField fx:id="nvetatTF" layoutX="226.0" layoutY="149.0" />
+      <TextField fx:id="nvcapaciteTF" layoutX="226.0" layoutY="216.0" prefWidth="149.0" />
+      <DatePicker fx:id="nvdate_instDP" layoutX="226.0" layoutY="286.0" prefHeight="25.0" prefWidth="149.0" />
+      <Button layoutX="274.0" layoutY="343.0" mnemonicParsing="false" onAction="#modifierBorne" text="Modifier" />
+      <Text layoutX="72.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emplacement :" />
+      <Text layoutX="72.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date d'installation :" />
+      <Text layoutX="72.0" layoutY="166.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Etat :" />
+      <Text layoutX="70.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capacité :" />
+
+   </children>
+</AnchorPane>
