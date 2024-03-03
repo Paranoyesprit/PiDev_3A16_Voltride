@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.afficherVoitureController">
+   <children>
+      <TextField fx:id="id_modele1" layoutX="212.0" layoutY="72.0" />
+      <TextField fx:id="id_prix1" layoutX="212.0" layoutY="166.0" />
+      <TextField fx:id="id_list" layoutX="77.0" layoutY="268.0" prefHeight="103.0" prefWidth="420.0" />
+      <TextField fx:id="id_marque1" layoutX="212.0" layoutY="37.0" />
+      <TextField fx:id="id_etat1" layoutX="212.0" layoutY="122.0" />
+      <TextField fx:id="id_killometrage1" layoutX="212.0" layoutY="200.0" />
+      <Label layoutX="71.0" layoutY="41.0" text="marque" />
+      <Label layoutX="71.0" layoutY="76.0" text="modele" />
+      <Label layoutX="71.0" layoutY="126.0" text="etat" />
+      <Label layoutX="63.0" layoutY="170.0" text="prix" />
+      <Label layoutX="63.0" layoutY="204.0" text="killometrage" />
+   </children>
+</AnchorPane>

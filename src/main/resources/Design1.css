@@ -1,0 +1,40 @@
+/* style.css */
+
+/* AnchorPane styling */
+.anchor-pane {
+    -fx-background-color: #292F36; /* Set background color */
+}
+
+/* Label styling */
+.label {
+    -fx-font-size: 13px; /* Set font size */
+    -fx-text-fill: #000000; /* Set text color */
+}
+
+/* TableView styling */
+.table-view {
+    -fx-background-color: #fff; /* Set background color */
+}
+
+/* TableColumn styling */
+.table-column {
+    -fx-alignment: CENTER; /* Align column content to center */
+}
+
+/* Button styling */
+.button {
+    -fx-background-color: #065e01; /* Set background color */
+    -fx-text-fill: #fff; /* Set text color */
+    -fx-font-size: 10px; /* Set font size */
+    -fx-pref-width: 60px; /* Set preferred width */
+}
+
+/* Table cell button styling */
+.table-cell .button {
+    -fx-background-color: #dc3545; /* Set background color */
+}
+
+/* Set button text color */
+.button:pressed, .button:hover, .update-button:pressed, .update-button:hover {
+    -fx-text-fill: #fff; /* Change text color on hover or press */
+}

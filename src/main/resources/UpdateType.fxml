@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import java.lang.String?>
+<AnchorPane prefHeight="550.0" prefWidth="760.0" stylesheets="Design2.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controllers.UpdateTypeController">
+    <children>
+        <VBox layoutX="105.0" layoutY="36.0" spacing="10.0" styleClass="v-box">
+            <children>
+                <Label text="Modifier" styleClass="title-label" />
+                <HBox spacing="10.0" styleClass="input-row">
+                    <children>
+                        <Label text="Type Name:" />
+                        <TextField fx:id="txtTypeName" />
+                    </children>
+                </HBox>
+                <Button layoutX="321.0" layoutY="304.0" mnemonicParsing="false" onAction="#updateType" text="Update" styleClass="update-button" />
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </VBox>
+    </children>
+</AnchorPane>

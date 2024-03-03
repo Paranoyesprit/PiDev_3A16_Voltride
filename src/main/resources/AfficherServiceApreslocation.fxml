@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane prefHeight="550.0" prefWidth="760.0" stylesheets="Design1.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_service_apreslocation.controllers.AfficherServiceApreslocationController">
+
+<children>
+    <ImageView fitWidth="100" fitHeight="100" layoutX="600.0" layoutY="10.0">
+        <image>
+            <Image url="@logo.png" />
+        </image>
+    </ImageView>
+
+    <Label layoutX="47.0" layoutY="40.0" text="Liste des Services :" />
+
+    <TableView fx:id="tableViewservices" layoutX="47.0" layoutY="110.0" prefHeight="400.0" prefWidth="670.0">
+        <columns>
+            <TableColumn fx:id="idColumn" text="idservice" />
+            <TableColumn fx:id="typeColumn" text="type" />
+            <TableColumn fx:id="technicienColumn" text="technicien" />
+            <TableColumn fx:id="descriptionColumn" text="description" />
+            <TableColumn fx:id="statutColumn" text="statut" />
+            <TableColumn fx:id="coutColumn" text="cout" />
+            <TableColumn fx:id="updateColumn" text="Modifier" />
+            <TableColumn fx:id="deleteColumn" text="Supprimer" />
+        </columns>
+
+        <fixedCellSize>30</fixedCellSize>
+    </TableView>
+
+    <Button layoutX="47.0" layoutY="512.0" onAction="#handleAjouterService" prefHeight="35.0" prefWidth="200.0" text="Ajout Service" style="-fx-font-size: 6pt;" />
+    <Button layoutX="117.0" layoutY="512.0" onAction="#redirectToAddType" prefHeight="35.0" prefWidth="220.0" text="Ajout Type" style="-fx-font-size: 6pt;" />
+    <Button layoutX="187.0" layoutY="512.0" onAction="#redirectToShowType" prefHeight="35.0" prefWidth="220.0" text="Fiche Service" style="-fx-font-size: 6pt;" />
+
+
+</children>
+</AnchorPane>

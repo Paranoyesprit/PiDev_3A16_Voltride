@@ -1,0 +1,71 @@
+/* Design2.css */
+
+/* Header label styling */
+.header-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-color: #052acc;
+    -fx-padding: 15px 10px;
+    -fx-border-radius: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+    -fx-alignment: center;
+    -fx-max-width: 100%;
+    -fx-ellipsis-string: "Liste des services";
+    -fx-text-overrun: ellipsis;
+    -fx-underline: false;
+    -fx-background-radius: 5px;
+    -fx-border-color: transparent;
+    -fx-border-width: 2px;
+}
+
+/* Other label styling */
+.label-white {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+}
+
+/* VBox styling */
+#eventContainer {
+    -fx-background-image: url('file:///C:/Users/Kais/Downloads/wepik-export-20240302112436V8DS.jpeg'); /* Replace with the absolute path to your background image */
+    -fx-background-size: cover;
+    -fx-padding: 50px 20px 20px 20px;
+    -fx-spacing: 10px;
+    -fx-background-color: rgba(0, 0, 0, 0.5); /* Dark overlay color with 50% opacity */
+    -fx-background-blur: 20px; /* Blur effect */
+    -fx-background-position: center; /* Adjust the image to be centered */
+}
+
+/* Make the Label style more specific to override inline style */
+VBox > .header-label {
+    -fx-text-fill: white !important;
+}
+
+/* TableView styling */
+.table-view {
+    -fx-background-color: #FFFFFF;
+}
+
+/* TableColumn styling */
+.table-column {
+    -fx-alignment: CENTER;
+}
+
+/* Button styling */
+.action-button {
+    -fx-background-color: #065e01;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-min-width: 120px;
+}
+
+/* Hover effect */
+.action-button:hover {
+    -fx-background-color: #04AA6D;
+}
+
+/* Pressed effect */
+.action-button:pressed {
+    -fx-background-color: #032E1A;
+}
