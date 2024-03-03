@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ServiceApreslocationServices implements IServiceS<ServiceApreslocation> {
+
     private Connection conn;
     private Statement ste;
     private PreparedStatement pst;
@@ -96,25 +97,30 @@ public class ServiceApreslocationServices implements IServiceS<ServiceApreslocat
 
     @Override
     public ServiceApreslocation readById(int id) {
-        String requete = "SELECT * FROM service_apreslocation WHERE idservice = ?";
-        try{
-            pst = conn.prepareStatement(requete);
+        String query = "SELECT * FROM service_apreslocation WHERE idservice = ?";
+        try {
+            pst = conn.prepareStatement(query);
             pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
-            if (rs.next()){
+            if (rs.next()) {
                 int typeId = rs.getInt("type");
                 Type type = readTypeById(typeId);
-                return new ServiceApreslocation(type,
-                        rs.getString(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getDouble(6));
+                ServiceApreslocation service = new ServiceApreslocation(
+                        type,
+                        rs.getString("technicien"),
+                        rs.getString("description"),
+                        rs.getString("statut"),
+                        rs.getDouble("cout")
+                );
+                service.setIdservice(rs.getInt("idservice")); // Set the ID here
+                return service;
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return null;
     }
+
 
 
     private Type readTypeById(int id) {
@@ -131,4 +137,37 @@ public class ServiceApreslocationServices implements IServiceS<ServiceApreslocat
        }
        return null;
    }
+    public int getNumberOfParticipants(int serviceId) {
+        int numberOfParticipants = 0;
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+
+        try {
+            conn = DataSource.getInstance().getCnx();
+            String query = "SELECT COUNT(*) AS participant_count FROM participation WHERE ids = ?";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, serviceId);
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                numberOfParticipants = resultSet.getInt("participant_count");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            // Close the resources
+            try {
+                if (resultSet != null) resultSet.close();
+                if (preparedStatement != null) preparedStatement.close();
+                if (connection != null) connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return numberOfParticipants;
+    }
 }
+
+

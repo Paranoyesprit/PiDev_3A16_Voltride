@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="gestion_service_apreslocation.controllers.ParticiperController"
+      fx:id="eventContainer" prefWidth="800" prefHeight="600"
+      stylesheets="Design2.css"> <!-- Ensure proper linking to the CSS file -->
+
+    <children>
+        <Label text="Liste des services" styleClass="header-label" /> <!-- Ensure correct class application -->
+    </children>
+</VBox>

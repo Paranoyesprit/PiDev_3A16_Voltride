@@ -8,6 +8,18 @@ public class ServiceApreslocation {
     private String description;
     private String statut;
     private double cout;
+    // Add new property for number of participants
+    private int nbrDeParticipant;
+
+    // Existing constructors and methods...
+
+    public int getNbrDeParticipant() {
+        return nbrDeParticipant;
+    }
+
+    public void setNbrDeParticipant(int nbrDeParticipant) {
+        this.nbrDeParticipant = nbrDeParticipant;
+    }
 
 
 
@@ -30,6 +42,7 @@ public class ServiceApreslocation {
     public Type getType() {
         return type;
     }
+
 
     public void setType(Type type) {
         this.type = type;

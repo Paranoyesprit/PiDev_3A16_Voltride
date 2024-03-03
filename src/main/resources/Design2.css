@@ -1,40 +1,73 @@
-/* style.css */
+/* Design2.css */
 
-/* AnchorPane styling */
-.anchor-pane {
-    -fx-background-color: #292F36; /* Set background color */
+/* Header label styling */
+.header-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-color: #052acc;
+    -fx-padding: 15px 10px;
+    -fx-border-radius: 15px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+    -fx-alignment: center;
+    -fx-max-width: 100%;
+    -fx-ellipsis-string: "Liste des services";
+    -fx-text-overrun: ellipsis;
+    -fx-underline: false;
+    -fx-background-radius: 5px;
+    -fx-border-color: transparent;
+    -fx-border-width: 2px;
 }
 
-/* Label styling */
-.label {
-    -fx-font-size: 30px; /* Set font size */
-    -fx-text-fill: #000000; /* Set text color */
+/* Other label styling */
+.label-white {
+    -fx-font-size: 16px;
+    -fx-text-fill: white;
+}
+
+/* VBox styling */
+#eventContainer {
+    -fx-background-image: url('bmw.jpg');
+    -fx-background-size: cover;
+    -fx-padding: 50px 20px 20px 20px;
+    -fx-spacing: 10px;
+    -fx-background-color: rgba(0, 0, 0, 0.5); /* Dark overlay color with 50% opacity */
+    -fx-background-blur: 20px; /* Blur effect */
+    -fx-background-position: center; /* Adjust the image to be centered */
+}
+
+
+
+/* Make the Label style more specific to override inline style */
+VBox > .header-label {
+    -fx-text-fill: white !important;
 }
 
 /* TableView styling */
 .table-view {
-    -fx-background-color: #fff; /* Set background color */
+    -fx-background-color: #FFFFFF;
 }
 
 /* TableColumn styling */
 .table-column {
-    -fx-alignment: CENTER; /* Align column content to center */
+    -fx-alignment: CENTER;
 }
 
 /* Button styling */
-.button {
-    -fx-background-color: #065e01; /* Set background color */
-    -fx-text-fill: #fff; /* Set text color */
-    -fx-font-size: 15px; /* Set font size */
-    -fx-pref-width: 90px; /* Set preferred width */
+.action-button {
+    -fx-background-color: #065e01;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-min-width: 120px;
 }
 
-/* Table cell button styling */
-.table-cell .button {
-    -fx-background-color: #dc3545; /* Set background color */
+/* Hover effect */
+.action-button:hover {
+    -fx-background-color: #04AA6D;
 }
 
-/* Set button text color */
-.button:pressed, .button:hover, .update-button:pressed, .update-button:hover {
-    -fx-text-fill: #fff; /* Change text color on hover or press */
+/* Pressed effect */
+.action-button:pressed {
+    -fx-background-color: #032E1A;
 }
