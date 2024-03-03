@@ -1,11 +1,13 @@
 package Controllers;
 
-import Controllers.ajouterReservationController;
+import Entities.Reservation_v;
 import Entities.Voiture;
+import Service.ReservationVService;
 import Service.VoitureService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -14,6 +16,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 import javafx.event.EventHandler;
@@ -27,8 +30,11 @@ public class HboxListController {
     @FXML
     private GridPane gridPane;
 
-    private final VoitureService voitureService = new VoitureService();
+    @FXML
+    private DatePicker datePicker;
 
+    private final VoitureService voitureService = new VoitureService();
+    private final ReservationVService vs = new ReservationVService();
     @FXML
     public void initialize() {
         // Création du bouton pour tout le GridPane
@@ -111,6 +117,29 @@ public class HboxListController {
             e.printStackTrace();
         }
     }
+
+    // Méthode pour gérer le clic sur le bouton "Chercher"
+    @FXML
+    private void searchButtonClicked(ActionEvent event) {
+        LocalDate selectedDate = datePicker.getValue();
+
+        // Efface le contenu actuel du GridPane
+        gridPane.getChildren().removeIf(node -> node instanceof VBox);
+
+        // Met à jour l'affichage avec les voitures disponibles pour la date sélectionnée
+        List<Voiture> availableCars = vs.getAvailableCars(selectedDate, selectedDate);
+        int rowIndex = 1;
+        int columnIndex = 0;
+        for (Voiture voiture : availableCars) {
+            addCarToGridPane(voiture, rowIndex, columnIndex);
+            columnIndex++;
+            if (columnIndex == 3) {
+                rowIndex++;
+                columnIndex = 0;
+            }
+        }
+    }
+
 
     private void showAlert(String erreur, String s) {
     }

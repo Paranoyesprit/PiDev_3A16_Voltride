@@ -43,7 +43,6 @@ public class InscriptionController {
     private TextField prenom_c;
 
 
-    void sawer(ActionEvent event) {}
 
     @FXML
     public void ajouterClient(ActionEvent event) {

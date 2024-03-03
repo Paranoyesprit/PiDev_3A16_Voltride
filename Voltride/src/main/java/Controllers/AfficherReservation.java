@@ -45,6 +45,10 @@ public class AfficherReservation {
     private void configureReserverColumn() {
         Reserver.setCellFactory(param -> new TableCell<>() {
             private final Button reserverButton = new Button("Réserver");
+            {
+                // Définir la couleur du bouton
+                reserverButton.setStyle("-fx-background-color: #19192AFF; -fx-text-fill: white;");
+            }
 
             @Override
             protected void updateItem(Void item, boolean empty) {

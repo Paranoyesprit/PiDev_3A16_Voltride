@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.GridPane?>
@@ -8,10 +10,12 @@
    <children>
       <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="-4.0" layoutY="-7.0" prefHeight="455.0" prefWidth="675.0">
          <content>
-            <GridPane fx:id="gridPane" prefHeight="428.0" prefWidth="647.0" style="-fx-background-image: url('file:///C:/Users/Kais/Downloads/wepik-export-20240302112436V8DS.jpeg'); -fx-background-size: cover; -fx-background-color: #00212b;">
+            <GridPane fx:id="gridPane" prefHeight="446.0" prefWidth="667.0" style="-fx-background-image: url('file:///C:/Users/Kais/Downloads/wepik-export-20240302112436V8DS.jpeg'); -fx-background-size: cover; -fx-background-color: #00212b;">
                <!-- GridPane for holding the cars -->
             </GridPane>
          </content>
       </ScrollPane>
+      <DatePicker fx:id="datePicker" layoutX="50.0" layoutY="10.0" promptText="Sélectionnez une date" />
+      <Button layoutX="250.0" layoutY="10.0" onAction="#searchButtonClicked" text="Chercher" />
    </children>
 </AnchorPane>

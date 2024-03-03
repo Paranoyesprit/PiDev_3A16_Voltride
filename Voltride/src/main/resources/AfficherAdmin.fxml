@@ -5,35 +5,33 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.image.Image?>
-<AnchorPane prefHeight="400.0" prefWidth="883.0" style="-fx-background-image: url('file:///C:/Users/Kais/Downloads/wepik-export-20240302105036yqJS.jpeg'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AfficherAdminController">
+<AnchorPane prefHeight="422.0" prefWidth="869.0" style="-fx-background-image: url('file:///C:/Users/Kais/Downloads/wp2508380.jpg'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AfficherAdminController">
     <stylesheets>
-        <URL value="@styles.css" />
+        <URL value="@styles1.css" />
     </stylesheets>
 
 
 
    <children>
-      <TableView fx:id="affichage_u" layoutY="101.0" prefHeight="234.0" prefWidth="889.0" style="-fx-background-image: transparant;">
+      <TableView fx:id="affichage_u" layoutX="14.0" layoutY="75.0" prefHeight="234.0" prefWidth="829.0" style="-fx-background-image: transparant;">
         <columns>
           <TableColumn fx:id="id_u" prefWidth="32.79998779296875" text="ID" />
           <TableColumn fx:id="cin_u" prefWidth="68.79998779296875" text="CIN" />
-            <TableColumn fx:id="nom_u" prefWidth="76.0" text="NOM" />
-            <TableColumn fx:id="prenom_u" prefWidth="82.39996337890625" text="PRENOM" />
-            <TableColumn fx:id="email_u" prefWidth="124.79998779296875" text="EMAIL" />
-            <TableColumn fx:id="mp_u" prefWidth="61.60003662109375" text="MOT DE PASSE" />
-            <TableColumn fx:id="date_i" prefWidth="84.0" text="DATE INSCRI" />
-            <TableColumn fx:id="image_u" prefWidth="75.0" text="IMAGE" />
-            <TableColumn fx:id="dep" prefWidth="75.0" text="DEPARTEMENT" />
-            <TableColumn fx:id="colDelete" prefWidth="75.0" text="Delete" />
-            <TableColumn fx:id="colModifier" prefWidth="75.0" text="Modifier" />
+            <TableColumn fx:id="nom_u" prefWidth="52.79998779296875" text="NOM" />
+            <TableColumn fx:id="prenom_u" prefWidth="92.800048828125" text="PRENOM" />
+            <TableColumn fx:id="email_u" prefWidth="72.80000305175781" text="EMAIL" />
+            <TableColumn fx:id="mp_u" prefWidth="82.4000244140625" text="MOT DE PASSE" />
+            <TableColumn fx:id="date_i" prefWidth="91.20001220703125" text="DATE INSCRI" />
+            <TableColumn fx:id="image_u" prefWidth="55.20001220703125" text="IMAGE" />
+            <TableColumn fx:id="dep" prefWidth="76.79998779296875" text="DEPARTEMENT" />
+            <TableColumn fx:id="colDelete" prefWidth="85.60003662109375" text="Delete" />
+            <TableColumn fx:id="colModifier" prefWidth="126.4000244140625" text="Modifier" />
         </columns>
       </TableView>
-      <Button fx:id="ajouter" layoutX="386.0" layoutY="356.0" mnemonicParsing="false" onAction="#ajouterA" prefHeight="26.0" prefWidth="112.0" text="Ajouter" />
+      <Button fx:id="ajouter" layoutX="326.0" layoutY="318.0" mnemonicParsing="false" onAction="#ajouterA" prefHeight="30.0" prefWidth="205.0" text="Ajouter un nouveau admin" />
       <Label layoutX="386.0" layoutY="55.0" prefHeight="20.0" prefWidth="212.0" text="Liste des Admins">
          <font>
             <Font size="41.0" />

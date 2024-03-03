@@ -107,6 +107,7 @@ TextField, Label {
 
 
 /* TABLES */
+/* TABLES */
 
 .table-view {
     -fx-background-color: transparent;
@@ -132,6 +133,7 @@ TextField, Label {
 .table-view .table-cell{
     -fx-border-color: transparent;
     -fx-padding: 2 0 2 10px;
+    -fx-text-fill: white; /* Couleur du texte en blanc */
 }
 
 .table-row-cell:hover {
@@ -151,13 +153,13 @@ TextField, Label {
     -fx-padding: 0.0em;
 }
 
-.table-row-cell: highlighted {
+.table-row-cell:highlighted {
     -fx-background-color: -primary;
     -fx-background-radius: 5px;
     -fx-background-insets: 2px;
 }
 
-.table-row-cell: selected {
+.table-row-cell:selected {
     -fx-background-color: -tertiary;
     -fx-text-background-color: white;
     -fx-background-radius: 5px;

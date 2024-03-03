@@ -73,8 +73,17 @@ public class MenuController {
 
     @FXML
     void Mahdipage(ActionEvent event) {
-        redirectToPage("/Chemin/Vers/PageMahdi.fxml", event);
-    }
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherReservationBorne.fxml"));
+            Pane userDashContent = loader.load();
+
+            // Remplacer "aff" par l'ID correct du Pane dans votre fichier menu.fxml
+            Pane affPane = (Pane) ((Node) event.getSource()).getScene().lookup("#aff");
+            affPane.getChildren().setAll(userDashContent);
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert("Erreur de Navigation", "Impossible de charger la page de tableau de bord utilisateur. Veuillez réessayer.");
+        }    }
 
     @FXML
     void Ferpage(ActionEvent event) {

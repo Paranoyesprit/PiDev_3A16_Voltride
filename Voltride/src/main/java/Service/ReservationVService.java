@@ -225,10 +225,49 @@ public class ReservationVService implements IServicev<Reservation_v> {
         return reservationList;
     }
 
+    public List<Voiture> getAvailableCars(LocalDate startDate, LocalDate endDate) {
+        List<Voiture> availableCars = new ArrayList<>();
+
+        // Requête SQL pour récupérer les voitures qui ne sont pas réservées dans les intervalles de dates spécifiés
+        String query = "SELECT * FROM voiture WHERE id_v NOT IN " +
+                "(SELECT id_v FROM reservation_voiture " +
+                "WHERE (date_debut <= ? AND date_fin >= ?) " +
+                "OR (date_debut <= ? AND date_fin >= ?) " +
+                "OR (date_debut >= ? AND date_fin <= ?))";
+
+        try (PreparedStatement pst = conn.prepareStatement(query)) {
+            pst.setDate(1, Date.valueOf(startDate));
+            pst.setDate(2, Date.valueOf(startDate));
+            pst.setDate(3, Date.valueOf(endDate));
+            pst.setDate(4, Date.valueOf(endDate));
+            pst.setDate(5, Date.valueOf(startDate));
+            pst.setDate(6, Date.valueOf(endDate));
+
+            ResultSet rs = pst.executeQuery();
+
+            // Parcourir le résultat et créer les objets Voiture correspondants
+            while (rs.next()) {
+                int id_voiture = rs.getInt("id_v");
+                String marque = rs.getString("marque");
+                String modele = rs.getString("modele");
+                float prix_location = rs.getFloat("prix_location");
+                float kilometrage = rs.getFloat("kilometrage");
+                String image = rs.getString("image");
+
+                // Créer et ajouter un nouvel objet Voiture à la liste
+                Voiture voiture = new Voiture(id_voiture, marque, modele, null, prix_location, kilometrage, image);
+                availableCars.add(voiture);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return availableCars;
+    }
 
     @Override
     public List<Voiture> readAvailableVoitures() {
-   return null;
+        return null;
     }
 
 

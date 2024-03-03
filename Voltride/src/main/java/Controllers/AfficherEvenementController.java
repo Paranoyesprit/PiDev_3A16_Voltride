@@ -1,6 +1,7 @@
 package Controllers;
 
 import Entities.Evenement;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -135,11 +136,32 @@ public class AfficherEvenementController {
         }
     }
 
+    @FXML
+    void ajouter(ActionEvent event) {
+
+        loadFXML("/AjouterEvenement.fxml");
+
+    }
+
     private void showAlert(String erreur, String s) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(erreur);
         alert.setHeaderText(null);
         alert.setContentText(s);
         alert.showAndWait();
+    }
+
+    private void loadFXML(String fxmlPath) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+            // Gérer les erreurs de chargement du fichier FXML
+        }
     }
 }
