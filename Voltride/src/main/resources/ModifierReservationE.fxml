@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<?import java.net.URL?>
+<AnchorPane prefHeight="446.0" prefWidth="667.0" style="-fx-background-image: url('file:///C:/Users/Kais/Downloads/wepik-export-20240302112436V8DS.jpeg'); -fx-background-size: cover;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ModifierReservationEController">
+    <stylesheets>
+        <URL value="@styles.css" />
+    </stylesheets>
+    <children>
+        <Text layoutX="48.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nouvelle Nombre De Personne" wrappingWidth="128.02865600585938" />
+        <Text layoutX="48.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nouvelle Commentaire" wrappingWidth="128.02865600585938" />
+        <Button layoutX="265.0" layoutY="341.0" mnemonicParsing="false" onAction="#modifierReservation" text="Modifier" />
+      <TextField fx:id="nvnbrP" layoutX="217.0" layoutY="105.0" />
+      <TextField fx:id="nbCom" layoutX="192.0" layoutY="203.0" prefHeight="109.0" prefWidth="258.0" />
+      <Text layoutX="120.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier Votre Reservation" textAlignment="CENTER">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+    </children>
+</AnchorPane>

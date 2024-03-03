@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.StatisticsController">
+    <!-- Header -->
+    <Label text="Statistiques des réservations" layoutX="225.0" layoutY="14.0">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+
+    <!-- Bar Chart -->
+    <BarChart layoutX="14.0" layoutY="53.0" prefHeight="200.0" prefWidth="572.0" fx:id="reservationChart">
+        <xAxis>
+            <CategoryAxis fx:id="monthAxis" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+            <NumberAxis fx:id="countAxis" side="LEFT" />
+        </yAxis>
+    </BarChart>
+
+    <!-- Pie Chart -->
+    <PieChart layoutX="14.0" layoutY="269.0" prefHeight="200.0" prefWidth="200.0" fx:id="pieChart" />
+
+    <!-- Table View -->
+    <TableView layoutX="220.0" layoutY="269.0" prefHeight="200.0" prefWidth="366.0" fx:id="tableView">
+        <!-- Define columns -->
+        <columns>
+            <TableColumn fx:id="monthColumn" text="Month">
+                <cellValueFactory>
+                    <PropertyValueFactory property="month" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="countColumn" text="Number of Reservations">
+                <cellValueFactory>
+                    <PropertyValueFactory property="numberOfReservations" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+
+
+</AnchorPane>
